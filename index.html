@@ -56,7 +56,7 @@
          const popupMessage = document.getElementById('popupMessage');
          const popupLink = document.getElementById('popupLink');
 
-         popupMessage.textContent = randomItem.message;
+         popupMessage.innerHTML = randomItem.message;
          popupLink.href = randomItem.link;
 
          popupContainer.style.display = 'block';
@@ -69,4 +69,5 @@
 
  </body>
  </html>
+
 
