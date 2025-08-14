@@ -1,28 +1,71 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Random Popup</title>
-</head>
-<body>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Random Popup</title>
+     <style>
+         body {
+             background-image: url('https://www.dropbox.com/scl/fi/gel0h4fgwo0alv9bj15ah/Photo-14-8-2568-BE-11-18-12.png?rlkey=efj7b9hzvisnmsu8kn7fqnx7h&st=ibn9z9jn&dl=0'); /* Replace with your image URL */
+             background-size: cover;
+             background-position: center;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+             margin: 0;
+         }
+         .popup-container {
+             background-color: rgba(255, 255, 255, 0.9);
+             border-radius: 10px;
+             padding: 30px;
+             text-align: center;
+             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+         }
+         .popup-message {
+             font-size: 24px;
+             font-weight: bold;
+             margin-bottom: 20px;
+         }
+         .popup-link {
+             font-size: 18px;
+             color: blue;
+             text-decoration: none;
+         }
+     </style>
+ </head>
+ <body>
 
-    <script>
-        // ข้อมูลข้อความและลิงก์ที่คุณต้องการ
-        const data = [
-            { message: "💡ดีนะที่ QR นี้ปลอดภัย ไม่ใช่ QR มิจฉาชีพ!", link: "https://www.bot.or.th/th/fraud.html" },
-            { message: "🛡 ถ้า QR นี้เป็นของโจร...คุณโดนดูดเงินไปแล้ว!", link: "https://www.bot.or.th/th/fraud.html" },
-            { message: "🐱 รอดไป! QR ที่เพิ่งสแกนไม่ใช่หลุมดูดเงิน", link: "https://www.bot.or.th/th/fraud.html" },
-        ];
+     <div id="popupContainer" style="display: none;" class="popup-container">
+         <p id="popupMessage" class="popup-message"></p>
+         <a id="popupLink" class="popup-link" href="#">คลิกที่นี่</a>
+     </div>
 
-        // สุ่มเลือกข้อมูลจากอาร์เรย์
-        const randomItem = data[Math.floor(Math.random() * data.length)];
+     <script>
+         const data = [
+             { message: "ดีนะที่ QR นี้ปลอดภัย ไม่ใช่ QR มิจฉาชีพ! – ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย", link: "https://www.bot.or.th/th/fraud.html" },
+             { message: "ถ้า QR นี้เป็นของโจร...คุณโดนดูดเงินไปแล้ว! – ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย", link: "https://www.bot.or.th/th/fraud.html" },
+             { message: "รอดไป! QR ที่เพิ่งสแกนไม่ใช่แอปดูดเงิน – ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย", link: "https://www.bot.or.th/th/fraud.html" },
+             { message: "ถ้า QR นี้เป็นของมิจฉาชีพ…แมวที่บ้านคุณก็ช่วยไม่ทันนะ – ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย", link: "https://www.bot.or.th/th/fraud.html" }
+         ];
 
-        // แสดง Pop-up พร้อมข้อความและลิงก์
-        alert(randomItem.message);
+         const randomIndex = Math.floor(Math.random() * data.length);
+         const randomItem = data.splice(randomIndex, 1)[0]; // Get one random item and remove it
 
-        // เปลี่ยนเส้นทางไปยังลิงก์
-        window.location.href = randomItem.link;
-    </script>
+         const popupContainer = document.getElementById('popupContainer');
+         const popupMessage = document.getElementById('popupMessage');
+         const popupLink = document.getElementById('popupLink');
 
-</body>
+         popupMessage.textContent = randomItem.message;
+         popupLink.href = randomItem.link;
 
-</html>
+         popupContainer.style.display = 'block';
+
+         // After a short delay, redirect
+         setTimeout(() => {
+             window.location.href = randomItem.link;
+         }, 5000); // Redirect after 5 seconds (adjust as needed)
+     </script>
+
+ </body>
+ </html>
