@@ -1,73 +1,79 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Random Popup</title>
-     <style>
-         body {
-             background-image: url('https://imgur.com/a/FhycTTP'); /* Replace with your image URL */
-             background-size: cover;
-             background-position: center;
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             min-height: 100vh;
-             margin: 0;
-         }
-         .popup-container {
-             background-color: rgba(255, 255, 255, 0.9);
-             border-radius: 10px;
-             padding: 30px;
-             text-align: center;
-             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-         }
-         .popup-message {
-             font-size: 24px;
-             font-weight: bold;
-             margin-bottom: 20px;
-         }
-         .popup-link {
-             font-size: 18px;
-             color: blue;
-             text-decoration: none;
-         }
-     </style>
- </head>
- <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Popup</title>
+    <style>
+        body {
+            background-image: url('https://i.imgur.com/HIQxn0X.png'); /* เปลี่ยน URL รูปภาพตรงนี้ */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .popup-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            width: 350px;
+        }
+        .popup-message {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        .line1 {
+            color: #ff5733; /* สีแดงส้ม */
+        }
+        .line2 {
+            color: #33aaff; /* สีฟ้า */
+        }
+        .popup-link {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
 
-     <div id="popupContainer" style="display: none;" class="popup-container">
-         <p id="popupMessage" class="popup-message"></p>
-         <a id="popupLink" class="popup-link" href="#">คลิกที่นี่</a>
-     </div>
+    <div id="popupContainer" style="display: none;" class="popup-container">
+        <p id="popupMessage" class="popup-message"></p>
+    </div>
 
-     <script>
-         const data = [
-             { message: "ดีนะที่ QR นี้ปลอดภัย ไม่ใช่ QR มิจฉาชีพ!<br>ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย", link: "https://www.bot.or.th/th/fraud.html" },
-             { message: "ถ้า QR นี้เป็นของโจร...คุณโดนดูดเงินไปแล้ว!<br>ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย", link: "https://www.bot.or.th/th/fraud.html" },
-             { message: "รอดไป! QR ที่เพิ่งสแกนไม่ใช่แอปดูดเงิน<br>ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย", link: "https://www.bot.or.th/th/fraud.html" },
-             { message: "ถ้า QR นี้เป็นของมิจฉาชีพ…แมวที่บ้านคุณก็ช่วยไม่ทันนะ<br>ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย", link: "https://www.bot.or.th/th/fraud.html" }
-         ];
+    <script>
+        const data = [
+            { message: "<span class='line1'>🛡ดีนะที่ QR นี้ปลอดภัย ไม่ใช่ QR มิจฉาชีพ!</span><br><span class='line2'>ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย</span>", link: "https://www.example1.com" },
+            { message: "<span class='line1'>🥷ถ้า QR นี้เป็นของโจร...คุณโดนดูดเงินไปแล้ว!</span><br><span class='line2'>ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย</span>", link: "https://www.example2.com" },
+	    { message: "<span class='line1'>🐱ถ้า QR นี้เป็นของมิจฉาชีพ…แมวที่บ้านคุณก็ช่วยไม่ทันนะ!</span><br><span class='line2'>ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย</span>", link: "https://www.example2.com" },
+            { message: "<span class='line1'>🫠รอดไป! QR ที่เพิ่งสแกนไม่ใช่แอปดูดเงิน</span><br><span class='line2'>ไม่ระวังแบบนี้ ต้องเติมความรู้กันหน่อย</span>", link: "https://www.example3.com" }
+        ];
 
-         const randomIndex = Math.floor(Math.random() * data.length);
-         const randomItem = data.splice(randomIndex, 1)[0]; // Get one random item and remove it
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const randomItem = data[randomIndex];
 
-         const popupContainer = document.getElementById('popupContainer');
-         const popupMessage = document.getElementById('popupMessage');
-         const popupLink = document.getElementById('popupLink');
+        const popupContainer = document.getElementById('popupContainer');
+        const popupMessage = document.getElementById('popupMessage');
+        const popupLink = document.getElementById('popupLink');
 
-         popupMessage.innerHTML = randomItem.message;
-         popupLink.href = randomItem.link;
+        popupMessage.innerHTML = randomItem.message;
 
-         popupContainer.style.display = 'block';
+        popupContainer.style.display = 'block';
 
-         // After a short delay, redirect
-         setTimeout(() => {
-             window.location.href = randomItem.link;
-         }, 5000); // Redirect after 5 seconds (adjust as needed)
-     </script>
+        // หน่วงเวลา 10 วินาทีก่อนเปลี่ยนหน้า (ปรับได้)
+        setTimeout(() => {
+            window.location.href = randomItem.link;
+        }, 10000);
+    </script>
 
- </body>
- </html>
-
-
+</body>
+</html>
