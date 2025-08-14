@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Popup</title>
+</head>
+<body>
+
+    <script>
+        // ข้อมูลข้อความและลิงก์ที่คุณต้องการ
+        const data = [
+            { message: "ข้อความที่ 1: ดีนะที่ QR นี้ปลอดภัย ไม่ใช่ QR มิจฉาชีพ!", link: "https://www.bot.or.th/th/fraud.html" },
+            { message: "ข้อความที่ 2: o	ถ้า QR นี้เป็นของโจร...คุณโดนดูดเงินไปแล้ว!", link: "https://www.bot.or.th/th/fraud.html" },
+        ];
+
+        // สุ่มเลือกข้อมูลจากอาร์เรย์
+        const randomItem = data[Math.floor(Math.random() * data.length)];
+
+        // แสดง Pop-up พร้อมข้อความและลิงก์
+        alert(randomItem.message);
+
+        // เปลี่ยนเส้นทางไปยังลิงก์
+        window.location.href = randomItem.link;
+    </script>
+
+</body>
+</html>
